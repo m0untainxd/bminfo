@@ -2,6 +2,7 @@
 #27/04/2021 V1.0
 
 import requests
+import json
 
 class Search:
 
@@ -9,6 +10,7 @@ class Search:
         self.beatmapID = 0
         self.beatmapsetID = 0
         self.api_key = key
+        self.mods = []
 
     #set functions
 
@@ -28,14 +30,32 @@ class Search:
 
     #special functions
 
-    def api(self):
+    def api_mapID(self):
+        #sets parameters for connection to the api
         parameters = {
-            "k": self.api_key,
-            "b": self.beatmapID
+            "k": self.api_key, #required api key
+            "b": self.beatmapID #ID for the map to be returned
         }
 
-        response = requests.get('https://osu.ppy.sh/api/get_beatmaps', params=parameters)
-        return response.json()
+        raw = requests.get('https://osu.ppy.sh/api/get_beatmaps', params=parameters) #get data from the api
+        response = raw.json()
+        diff_data = json.dumps(response)
+        data = json.loads(diff_data)
 
-    def database(self):
-        pass
+        return data
+
+    def api_mapsetID(self):
+        #params for connection to api
+        parameters = {
+            "k": self.api_key, #required api key
+            "s": self.beatmapsetID,
+            "m": 0
+        }
+
+        raw = requests.get('https://osu.ppy.sh/api/get_beatmaps', params=parameters) #get data from the api
+        response = raw.json()
+        into_list = json.dumps(response)
+        diff_list = json.loads(into_list)
+
+        return diff_list
+        
