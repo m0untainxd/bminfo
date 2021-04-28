@@ -10,7 +10,6 @@ class Search:
         self.beatmapID = 0
         self.beatmapsetID = 0
         self.api_key = key
-        self.mods = []
 
     #set functions
 
