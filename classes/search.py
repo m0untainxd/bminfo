@@ -15,9 +15,11 @@ class Search:
 
     def setmapID(self, id):
         self.beatmapID = id
+        return
 
     def setmapsetID(self, id):
         self.beatmapsetID = id
+        return
 
     #get functions
 
