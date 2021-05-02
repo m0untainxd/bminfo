@@ -1,7 +1,9 @@
 #coded by Andrew Radcliffe
 #30/04/2021 v1.00
 
-import subprocess
+import os
+import sys
+import main.pyttanko
 
 class Performance:
 
@@ -52,7 +54,12 @@ class Performance:
     #special methods
 
     def pyttanko(self, mapID):
-        link = "https://osu.ppy.sh/osu/" + str(mapID)
-        cmd = ['cat', link, '|', '/classes/pyttanko.py', self.mods, str(self.maxcombo) + 'x', str(self.misses) + 'm', str(self.accuracy) + '%']
-        result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, check=True, shell=True)
-        setpp(result.stdout.decode('utf-8'))
+        cmd = "curl https://osu.ppy.sh/osu/" + str(mapID) + " | .\main\pyttanko.py +" + self.mods + " " + str(self.maxcombo) + "x " + str(self.misses) + "m " + str(self.accuracy) + "%"
+        run = os.popen(cmd)
+        result = run.read()
+
+        start = result.find('threshold\n') + 10
+        end = result.find('.', start)
+        pp = result[start:end]
+        self.setpp(pp)
+        return
