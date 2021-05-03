@@ -60,6 +60,5 @@ class Performance:
 
         start = result.find('threshold\n') + 10
         end = result.find('.', start)
-        pp = result[start:end]
-        self.setpp(pp)
+        self.pp = result[start:end]
         return
