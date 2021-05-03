@@ -3,24 +3,29 @@
 
 class Beatmap:
     
-    def __init__(self): #initialise the class and define variables
-        self.beatmapID = 0
-        self.title = ""
-        self.artist = ""
-        self.version = ""
-        self.creator = ""
-        self.ar = 0.0
-        self.cs = 0.0
-        self.od = 0.0
-        self.hp = 0.0
-        self.stars = 0.00
-        self.length = 0
-        self.bpm = 0
+    def __init__(self, mapID, mapsetID, title, artist, ver, mapper, ar, cs, od, hp, stars, length, bpm): #initialise the class and define variables
+        self.beatmapID = mapID
+        self.beatmapsetID = mapsetID
+        self.title = title
+        self.artist = artist
+        self.version = ver
+        self.creator = mapper
+        self.ar = ar
+        self.cs = cs
+        self.od = od
+        self.hp = hp
+        self.stars = stars
+        self.length = length
+        self.bpm = bpm
 
     #set functions
 
     def setmapID(self, beatmapID):
         self.beatmapID = beatmapID
+        return
+
+    def setmapsetID(self, mapsetID):
+        self.beatmapsetID = mapsetID
         return
     
     def settitle(self, title):
@@ -71,6 +76,9 @@ class Beatmap:
 
     def getmapID(self):
         return self.beatmapID
+
+    def getmapsetID(self):
+        return self.beatmapsetID
 
     def gettitle(self):
         return self.title
