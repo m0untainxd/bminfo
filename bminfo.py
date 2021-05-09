@@ -367,6 +367,8 @@ class Main:
             self.mods = self.mods + "HR"
         if self.fl.get() == 1:
             self.mods = self.mods + "FL"
+
+        messagebox.showinfo(title="Message", message="Mods applied. (" + self.mods + ")")
         
         return self.mods
 
