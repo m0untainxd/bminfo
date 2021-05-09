@@ -343,14 +343,17 @@ class Main:
     
     def setmods(self):
         self.mods = ""
+        valid = True
         
         #error handler to check for conflicting mods
         if self.hr.get() == 1 and self.ez.get() == 1:
             messagebox.showerror(title="Error", message="Both HR and EZ cannot be selected as they are conflicting mods, please try again.")
-            return
+            valid = False
+            return valid
         if self.dt.get() == 1 and self.ht.get() == 1:
             messagebox.showerror(title="Error", message="Both DT and HT cannot be selected as they are conflicting mods, please try again.")
-            return
+            valid = False
+            return valid
         
         #all if statements not if, elif, elif, etc because it needs to check each var individually
         if self.ez.get() == 1:
@@ -367,7 +370,7 @@ class Main:
             self.mods = self.mods + "HR"
         if self.fl.get() == 1:
             self.mods = self.mods + "FL"
-            
+
         return self.mods
 
     def ppsubmit(self):
@@ -411,7 +414,13 @@ class Main:
 
         global performance
         performance = Performance(acc, combo, misses)
-        self.setmods()
+        valid = self.setmods()
+
+        if valid:
+            pass
+        else:
+            return
+            
         performance.setmods(self.mods)
         performance.pyttanko(beatmap.getmapID())
         self.pp = performance.getpp()
