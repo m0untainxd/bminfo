@@ -367,13 +367,7 @@ class Main:
             self.mods = self.mods + "HR"
         if self.fl.get() == 1:
             self.mods = self.mods + "FL"
-<<<<<<< HEAD
             
-=======
-
-        messagebox.showinfo(title="Message", message="Mods applied. (" + self.mods + ")")
-        
->>>>>>> 26d728dd48e3754e253d47b192cae7b9c517f86f
         return self.mods
 
     def ppsubmit(self):
