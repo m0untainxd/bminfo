@@ -371,7 +371,7 @@ class Main:
         if self.fl.get() == 1:
             self.mods = self.mods + "FL"
 
-        return self.mods
+        return valid
 
     def ppsubmit(self):
         
