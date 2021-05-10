@@ -3,7 +3,7 @@
 
 import os
 import sys
-import main.pyttanko
+import modules.pyttanko
 
 class Performance:
 
