@@ -3,7 +3,7 @@
 
 import os
 import sys
-import modules.pyttanko
+import main.pyttanko
 
 class Performance:
 
@@ -54,7 +54,7 @@ class Performance:
     #special methods
 
     def pyttanko(self, mapID):
-        cmd = "curl https://osu.ppy.sh/osu/" + str(mapID) + " | .\modules\pyttanko.py +" + self.mods + " " + str(self.maxcombo) + "x " + str(self.misses) + "m " + str(self.accuracy) + "%"
+        cmd = "curl https://osu.ppy.sh/osu/" + str(mapID) + " | .\main\pyttanko.py +" + self.mods + " " + str(self.maxcombo) + "x " + str(self.misses) + "m " + str(self.accuracy) + "%"
         run = os.popen(cmd)
         result = run.read()
 
