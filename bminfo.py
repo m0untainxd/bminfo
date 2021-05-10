@@ -19,7 +19,7 @@ performance = None
 class IdGet:
     def __init__(self, master):
         self.master = master
-        self.master.title("bminfo.exe (idget)")
+        self.master.title("bminfo (idget)")
         self.master.columnconfigure(0, minsize=350)
         self.master.rowconfigure(0, minsize=100)
         ent_val = 0
@@ -171,7 +171,7 @@ class IdGet:
 class Main:
     def __init__(self, master):
         self.master = master
-        self.master.title("bminfo.exe (main)")
+        self.master.title("bminfo (main)")
         self.master.rowconfigure(0, minsize=200)
         self.master.columnconfigure(0, minsize=350)
         self.image_frame = tkinter.Frame(master=self.master)
@@ -449,7 +449,7 @@ class Diff:
     
     def __init__(self, master, title, artist, mapper, diff_names, diff_list):
         self.master = master
-        self.master.title("bminfo.exe (diffselect)")
+        self.master.title("bminfo (diffselect)")
         self.diff_names = diff_names
         self.diff_list = diff_list
 
